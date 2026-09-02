@@ -26,6 +26,12 @@ class Lab_object:
     def show_info(self) -> None:
         print(f"Obj type: {self.obj_type_code}, contains: {self.contains}")
 
+    def quick_setup(self, code: str, size: int, weight: int, max_weight: int) -> None:
+        self.obj_type_code = code
+        self.size = size
+        self.weight = weight
+        self.max_weight = max_weight
+
 
 class Worker:
 
