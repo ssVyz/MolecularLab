@@ -2,6 +2,14 @@
 
 
 
+class Reagent_magazine:
+
+    def __init__(self) -> None:
+        self.mag_code: str = ""
+        self.content: str = ""
+        self.loaded: int = 0
+        self.max_load: int = 0
+
 
 ### LAB OBJECT CLASS ###
 ########################
@@ -18,6 +26,8 @@ class Lab_object:
 
         self.status: str = "standby"
         self.max_processes: int = 0
+
+        self.magazines: list[Reagent_magazine] = []
 
 
     def show_info(self) -> None:
@@ -37,9 +47,10 @@ class Lab_object:
 
 class Room:
 
-    def __init__(self) -> None:
+    def __init__(self, name: str) -> None:
         self.area: int = 0
         self.objects: list[Lab_object] = []
+        self.name = name
 
     def quick_setup(self, size: int) -> None:
         if size >= 0 and isinstance(size, int):
@@ -62,9 +73,10 @@ class Room:
 
 class Lab:
 
-    def __init__(self) -> None:
+    def __init__(self, name: str) -> None:
         self.rooms: list[Room] = []
         self.workers: list[Worker] = []
+        self.name = name
 
 
 

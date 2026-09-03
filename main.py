@@ -9,7 +9,7 @@ def main() -> None:
     print("provisional test suite")
 
     print("Test 1: rooms and objects")
-    daRoom = Room()
+    daRoom = Room("Testroom1")
     daRoom.quick_setup(50)
     obj1 = Lab_object("Megablaster 5000")
     obj1.quick_setup("test1", 5, 2, 2)
