@@ -106,6 +106,7 @@ class Lab:
 
 
 
+
 ### Worker class, to be moved elsewhere ###
 ##########################################
 
