@@ -73,7 +73,7 @@ class Lab_object:
 
 class Room:
 
-    def __init__(self, name: str) -> None:
+    def __init__(self, name: str, size: int) -> None:
         self.area: int = 0
         self.objects: list[Lab_object] = []
         self.name = name

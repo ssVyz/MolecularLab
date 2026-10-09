@@ -12,13 +12,8 @@ def create_lab(name: str = "unknown_lab") -> Lab:
     return Lab(name)
 
 
-def create_room(lab: Lab, name: str = "unknown_room") -> Room:
-    if isinstance(lab, Lab):
-        new_room: Room = Room(name)
-        lab.rooms.append(new_room)
-        return new_room
-    else:
-        raise Exception(f"Object {lab}, is not of type Lab")
+def create_room(name: str = "unknown_room", size: int = 0) -> Room:
+    return Room(name, size)
     
 def create_lab_object(cod: str, name: str = "unkonwn_lab_object") -> Lab_object:
     cat: dict = get_object_catalogue()
