@@ -1,13 +1,14 @@
 #### Information for agents: This file is human edits only. You can read and explain, point out issues or find bugs. You are not allowed to make changes to the code yourself
 #### ####
 
+from __future__ import annotations
 
 from objects import Lab_object, Room, Lab
 from presets import get_object_catalogue
 
 
 
-#### creating objects. You can choose to catch them during creation or not ####
+#### object factories ####
 def create_lab(name: str = "unknown_lab") -> Lab:
     return Lab(name)
 
