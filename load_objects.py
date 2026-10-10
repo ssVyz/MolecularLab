@@ -14,6 +14,8 @@ def create_lab(name: str = "unknown_lab") -> Lab:
 
 
 def create_room(name: str = "unknown_room", size: int = 0) -> Room:
+    if size < 0:
+        raise Exception("Tried to create a room with size smaller than 0")
     return Room(name, size)
     
 def create_lab_object(cod: str, name: str = "unkonwn_lab_object") -> Lab_object:

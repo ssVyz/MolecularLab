@@ -10,16 +10,30 @@ def main() -> None:
 
     sim = Simulation()
 
-    sim.lab = create_lab("testlab")
+    lab1 = sim.init_lab("Testlab1")
 
-    create_room(sim.lab, "testroom")
-    for r in sim.lab.rooms:
+    room1 = sim.add_room(lab1, 25, "Partyroom")
+    room2 = sim.add_room(lab1, 25, "Demoroom")
+    room3 = sim.add_room(lab1, 25, "Showroom")
+
+    object1 = sim.add_lab_object(room1, "0001", "Walli")
+    object2 = sim.add_lab_object(room1, "0001", "Swalli")
+    object3 = sim.add_lab_object(room2, "0001", "Tralli")
+    object4 = sim.add_lab_object(room3, "0001", "Halli")
+
+    lab1.show_info()
+
+    rooms = sim.fetch_rooms()
+    objects = sim. fetch_all_objects()
+
+    for r in rooms:
         r.show_info()
 
-    testobj = create_lab_object("0001", "testmaster")
-    testobj.show_info()
+    for o in objects:
+        o.show_info()
 
-  
+
+
 
 
 if __name__ == "__main__":

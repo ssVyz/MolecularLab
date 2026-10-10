@@ -4,7 +4,7 @@
 
 def get_object_catalogue() -> dict:
 
-    build_dict = dict()
+    build_dict: dict = dict()
 
     build_dict["lab_object"] = {}
 

@@ -12,15 +12,6 @@ def main() -> None:
 
     sim.init_lab("lab1")
 
-    sim.lab.add_room("room1", 25)
-
-    sim.lab.rooms[0].add_lab_object("0001", "testobject")
-
-    sim.lab.show_info()
-    sim.lab.rooms[0].show_info()
-    sim.lab.rooms[0].objects[0].show_info()
-
-
   
 
 

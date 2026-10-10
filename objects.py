@@ -2,9 +2,8 @@
 #### ####
 
 from __future__ import annotations
-import os
 
-from load_objects import create_room, create_lab_object
+
 
 
 class Reagent_magazine:
@@ -77,17 +76,9 @@ class Lab_object:
 class Room:
 
     def __init__(self, name: str, size: int) -> None:
-        self.area: int = 0
+        self.area: int = size
         self.objects: list[Lab_object] = []
         self.name = name
-
-    def add_lab_object(self, cod: str, name: str = "unknown_labobject") -> None:
-        try:
-            new_obj = create_lab_object(cod, name)
-        except:
-            print(f"failed to create lab object, name {name}, code {cod}")
-            os.Exit(1)
-        self.objects.append(new_obj)
 
     def show_info(self) -> None:
         print(f"Area: {self.area}, objects: {self.objects}")
@@ -103,9 +94,6 @@ class Lab:
         self.rooms: list[Room] = []
         self.workers: list[Worker] = []
         self.name = name
-    
-    def add_room(self, name: str = "unknown_room", size: int = 0) -> None:
-        self.rooms.append(create_room(name, size))
 
     def show_info(self) -> None:
         print(f"Lab name: {self.name}, Rooms: {self.rooms}")
