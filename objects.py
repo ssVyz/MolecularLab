@@ -23,6 +23,8 @@ class Lab_object:
     def __init__(self, name: str) -> None:
         self.obj_type_code: str = ""
         self.obj_name: str = name
+        self.uid: int = 0
+        self.parent: Room | Lab_object
 
         # Anything related to size and weight and stacking of objects
         self.size: int = 0
@@ -51,7 +53,7 @@ class Lab_object:
         self.allow_sampletype: list = []
 
     def show_info(self) -> None:
-        print(f"Obj type: {self.obj_type_code}, obj name: {self.obj_name}, contains: {self.stacked_obj}")
+        print(f"Obj type: {self.obj_type_code}, uid: {self.uid}, obj name: {self.obj_name}, contains: {self.stacked_obj}, parent: {self.parent}")
 
     def quick_setup(self, code: str, size: int, weight: int, max_weight: int) -> None:
         self.obj_type_code = code
@@ -59,12 +61,7 @@ class Lab_object:
         self.weight = weight
         self.max_weight = max_weight
 
-    def stack_object(self, o: Lab_object) -> str:
-        if isinstance(o, Lab_object):
-            self.stacked_obj.append(o)
-            return "success"
-        else:
-            return "error while trying to stack object. Invalid object"
+
 
 
 
@@ -79,9 +76,10 @@ class Room:
         self.area: int = size
         self.objects: list[Lab_object] = []
         self.name = name
+        self.uid = 0
 
     def show_info(self) -> None:
-        print(f"Area: {self.area}, objects: {self.objects}")
+        print(f"uid: {self.uid}, Area: {self.area}, objects: {self.objects}")
 
 
 

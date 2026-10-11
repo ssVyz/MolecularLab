@@ -13,7 +13,7 @@ def get_object_catalogue() -> dict:
     build_dict["lab_object"]["0001"]["obj_description"] = "Random generic analyzer thing"
     build_dict["lab_object"]["0001"]["size"] = 4
     build_dict["lab_object"]["0001"]["weight"] = 1500
-    build_dict["lab_object"]["0001"]["max_weight"] = 0
+    build_dict["lab_object"]["0001"]["max_weight"] = 2000
     build_dict["lab_object"]["0001"]["status"] = "standby"
     build_dict["lab_object"]["0001"]["available_processes"] = []
     build_dict["lab_object"]["0001"]["allows_actions"] = []
