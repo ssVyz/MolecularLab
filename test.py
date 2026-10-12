@@ -21,6 +21,13 @@ def main() -> None:
     object3 = sim.add_lab_object(room2, "0001", "Tralli")
     object4 = sim.add_lab_object(room3, "0001", "Halli")
     object5 = sim.add_stacked_lab_object(object4, "0001", "matoshka")
+    object6 = sim.add_stacked_lab_object(object1, "0001", "gorgon")
+
+    sim.dump_all()
+
+    sim.delete_lab_object(1)
+    sim.delete_lab_object(5)
+    sim.delete_room(2)
 
     sim.dump_all()
 

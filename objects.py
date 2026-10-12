@@ -25,6 +25,7 @@ class Lab_object:
         self.obj_name: str = name
         self.uid: int = 0
         self.parent: Room | Lab_object
+        self.deleted: bool = False
 
         # Anything related to size and weight and stacking of objects
         self.size: int = 0
@@ -55,11 +56,22 @@ class Lab_object:
     def show_info(self) -> None:
         print(f"Obj type: {self.obj_type_code}, uid: {self.uid}, obj name: {self.obj_name}, contains: {self.stacked_obj}, parent: {self.parent}")
 
-    def quick_setup(self, code: str, size: int, weight: int, max_weight: int) -> None:
-        self.obj_type_code = code
-        self.size = size
-        self.weight = weight
-        self.max_weight = max_weight
+    def del_nested_object(self, uid: int) -> None:
+        i: int = 0
+        found = False
+        while i < len(self.stacked_obj):
+            if self.stacked_obj[i].uid == uid:
+                found = True
+                break
+            else:
+                continue
+        if found == False:
+            raise Exception("Trying to delete nested object: not found")
+        else:
+            self.stacked_obj[i].deleted = True
+            del self.stacked_obj[i]
+
+
 
 
 
@@ -81,6 +93,23 @@ class Room:
     def show_info(self) -> None:
         print(f"uid: {self.uid}, Area: {self.area}, objects: {self.objects}")
 
+    def del_nested_object(self, uid: int) -> None:
+        i: int = 0
+        found = False
+        while i < len(self.objects):
+            if self.objects[i].uid == uid:
+                found = True
+                break
+            else:
+                i += 1
+                continue
+        if found == False:
+            raise Exception("Trying to delete nested object: not found")
+        else:
+            self.objects[i].deleted = True
+            del self.objects[i]
+            
+
 
 
 ### LAB CLASS ###
@@ -95,6 +124,23 @@ class Lab:
 
     def show_info(self) -> None:
         print(f"Lab name: {self.name}, Rooms: {self.rooms}")
+
+    def del_room(self, uid: int) -> None:
+        i: int = 0
+        found = False
+        while i < len(self.rooms):
+            if self.rooms[i].uid == uid:
+                found = True
+                break
+            else:
+                i += 1
+                continue
+        if found == False:
+            raise Exception("Trying to delete nested object: not found")
+        else:
+            del self.rooms[i]
+            
+
 
 
 
