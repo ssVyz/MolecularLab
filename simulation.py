@@ -78,7 +78,7 @@ class Simulation:
         if found == False:
             print(f"could not find object uid: {uid}")
             return
-        for obj in del_obj.stacked_obj:
+        for obj in del_obj.stacked_obj.copy():
             self.delete_lab_object(obj.uid)
         del_parent = del_obj.parent
         del_parent.del_nested_object(uid)
@@ -86,6 +86,9 @@ class Simulation:
     def delete_room(self, uid: int) -> None:
         if uid < 1:
             print("invalid uid")
+            return
+        if self.lab == None:
+            print("Lab not initialized")
             return
         current_rooms: list = self.fetch_rooms()
         found: bool = False
@@ -96,7 +99,7 @@ class Simulation:
         if found == False:
             print(f"could not find room uid: {uid}")
             return
-        for obj in del_room.objects:
+        for obj in del_room.objects.copy():
             self.delete_lab_object(obj.uid)
         self.lab.del_room(uid)
 
